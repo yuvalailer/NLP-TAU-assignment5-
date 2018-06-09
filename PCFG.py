@@ -89,3 +89,10 @@ class PCFG(object):
             if p < 0: return r
         return r
 
+    def get_prob(self, left, right):
+        if left in self._rules:
+            for words, weight in self._rules[left]:
+                if words[0] == right:
+                    return weight / self._sums[right]
+        return 0.0
+
