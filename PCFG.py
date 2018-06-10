@@ -73,6 +73,15 @@ class PCFG(object):
         ### END YOUR CODE
         return ""
 
+    def gen_cky_tree(self, bp_dict, bp):
+        # bp is a tuple: (i,j, nonTerminal)
+        start, end, symbol = bp
+        if self.is_terminal(symbol):
+            return symbol
+        else:
+            expansion = bp_dict[bp]
+            return "(" + symbol + " " + " ".join(self.gen_cky_tree(bp_dict,s) for s in expansion) + ")"
+
     def random_sent(self):
         return self.gen("ROOT")
 
@@ -90,9 +99,11 @@ class PCFG(object):
         return r
 
     def get_prob(self, left, right):
+        if isinstance(right, str):
+            right = [right]
         if left in self._rules:
             for words, weight in self._rules[left]:
-                if words[0] == right:
-                    return weight / self._sums[right]
+                if words == right:
+                    return weight / self._sums[left]
         return 0.0
 
