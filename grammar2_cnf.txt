@@ -1,0 +1,120 @@
+# Symbols in the grammar are case-sensitive.
+# 
+# This grammar uses a convention that
+#    - terminals are lowercase          (president)
+#    - preterminals are capitalized     (Noun)
+#    - other nonterminals are all-caps  (NP)
+# 
+# This convention just makes grammars more readable to humans.  Thus:
+#
+#    - When *you* are writing grammars, you should 
+#      follow this convention unless you have a good reason not to.  
+#
+#    - But the  *program* should still work with grammars that don't
+#      follow this convention.  So how can the program reliably tell
+#      the difference between terminal and nonterminal symbols?  If
+#      there is at least one rule for rewriting a symbol, then that
+#      symbol is a nonterminal and should be rewritten.
+#######################
+
+# Rules for creating full sentences.
+
+1	ROOT	S Punctuation
+1	ROOT	ISITTRUETHATS Question    # mixing terminals and nonterminals is ok.
+
+# The basic grammar rules.  Here's what the abbreviations stand for:
+#    S  = sentence
+#    NP = noun phrase
+#    VP = verb phrase
+#    PP = prepositional phrase
+#    Det = determiner (sometimes called "article")
+#    Prep = preposition
+#    Adj = adjective
+
+1	S	NP VP
+1	VP	Verb NP
+1	NP	Det Noun
+1	NP	NP PP
+1	PP	Prep NP
+1	Noun	Adj Noun
+1	Noun	Noun Noun
+1	Noun	CHIEF_OF Staff
+1	CHIEF_OF        Chief Of
+1   ISITTRUETHATS   ISITTRUETHAT S
+1   ISITTRUETHAT    ISIT TRUETHAT
+1   ISIT            Is It
+1   TRUETHAT        True That
+# Q3:
+1	NP	    Name            # yuval
+1	S	    NP VP2          # (yuval) (is nice)
+1	S	    NP_p VP2_p      # (yuval) (is nice)
+1	VP2	    Verb2_s Adj     # is(singular) nice
+1	VP2_p	Verb2_p Adj     # are(plural) nice
+1   VP      Verb3           # phonderd
+1   NP_p    NP2 Conj2_t     # A and B -> are
+1   Conj2_t Conj NP2
+1   NP2     Det Noun
+1   NP2     Name
+1   
+
+
+
+# Vocabulary.  Your program can see that "ate" is a terminal
+# symbol because there exists no rule for rewriting it.
+# Any symbol that can rewrite as a terminal (or a string of 
+# terminals, like "chief of staff") is called a "preterminal."  Notice 
+# that a preterminal is a special kind of nonterminal.
+
+1	Verb	ate
+1	Verb	wanted
+1	Verb	kissed
+1	Verb	understood
+1	Verb	pickled
+
+1	Det	the
+1	Det	a
+1	Det	every
+
+1	Noun	president
+1	Noun	sandwich
+1	Noun	pickle
+# 1	Noun	chief of staff
+1	Noun	floor
+
+1	Adj	fine
+1	Adj	delicious
+1	Adj	perplexed
+1	Adj	pickled
+
+1	Prep	with
+1	Prep	on
+1	Prep	under
+1	Prep	in
+
+1   Is  is
+1   It it
+1   True true
+1   That that
+
+1 Question ?
+1 Punctuation !
+1 Punctuation .
+
+1   Chief   chief
+1   Of  of
+1   Staff   staff
+
+# Q3:
+1 Name Rick
+1 Name Morthy
+
+1 Verb2_s is
+1 Verb2_p are
+
+1 Verb3 sighed
+1 Verb3 pondered
+
+1 Conj and
+1 Conj or
+
+1 pronoun it
