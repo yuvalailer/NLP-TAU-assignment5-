@@ -55,7 +55,7 @@
 1   Conj2_t Conj NP2
 1   NP2     Det Noun
 1   NP2     Name
-1   
+1
 
 
 
