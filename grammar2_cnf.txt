@@ -45,33 +45,41 @@
 1   ISIT            Is It
 1   TRUETHAT        True That
 # Q3:
-1	NP	    Name            # yuval
 1	S	    NP VP2          # (yuval) (is nice) (h)
-1	S	    NP_p VP2_p      # (yuval) (is nice)
+1	S	    Name VP2          # (yuval) (ate a sandwithc) (h)
+1	S	    Name VP          # (yuval) (ate a sandwithc) (h)
+1	S	    NP VP2_p      # (yuval) (is nice)
 1	VP2	    Verb2_s Adj     # is(singular) nice
-10	VP2_p	Verb2_p Adj     # are(plural) nice
-10	VP2	    Verb2_s VP_4      # is(singular) eating a dog (i)
-10	VP2_p	Verb2_p VP_4      # are(plural) eating a dog
-1   VP      Verb3           # phonderd
-1   NP_p    NP2 Conj2_t     # A and B -> are
+1	VP2_p	Verb2_p Adj     # are(plural) nice
+1	VP2	    Verb2_s VP_4      # is(singular) eating a dog (i)
+1	VP2_p	Verb2_p VP_4      # are(plural) eating a dog
+1   NP    NP2 Conj2_t     # A and B -> are
+1   NP    Name Conj2_t     # A and B -> are
 1   Conj2_t Conj NP2
 1   NP2     Det Noun
-1   NP2     Name
+1   NP2     Det Name
 1   S       Pronoun VP3_1     # (e) it.. that..
 1   VP3_1   VP_3 THAT_1       # () ,()
-1   THAT_1  that NP_1         # (),(that ___ )
+1   THAT_1  That NP         # (),(that ___ )
 1   VP_3    Verb NP2          # (ate the dog),()
-1   NP_1    NP Verb           # the dog ate
+1   VP_3    Verb3 NP2          # (ate the dog),()
+1   NP    NP Verb           # the dog ate
+1   NP    NP Verb3           # the dog ate
+
+# sentence b
+1 VP VP Conj_t
+1 VP  Verb Conj_t
+1 Conj_t  Conj VP
 
 1	Noun	    Adj_1 Noun      # (f)
 1   Adj_1       Adverb_1 Adj    #
 1   Adverb_1    Adverb_1 Adverb # loop
-2   Adverb_1    Adverb          # end
+#2   Adverb_1    Adverb          # end
 
 # 1   VP	Verb NP_on    # (g)
-1   NP_on   on Det_1      # on the ...
+1   NP_on   Prep Det_1      # on the ...
 1   Det_1   NP2 NP_on     # on the (loop)
-3   Det_1   NP2           # on the (stop)
+#3   Det_1   NP2           # on the (stop)
 
 1 VP_4      Verb_pp NP    # eating.. (the dog) (i)
 
@@ -128,6 +136,7 @@
 # Q3:
 1 Name Rick
 1 Name Morty
+1 Name Sally
 
 1 Verb2_s is
 1 Verb2_p are
