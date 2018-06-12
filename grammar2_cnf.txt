@@ -67,9 +67,30 @@
 1   NP    NP Verb3           # the dog ate
 
 # sentence b
-1 VP VP Conj_t
-1 VP  Verb Conj_t
-1 Conj_t  Conj VP
+1   VP VP Conj_t
+1   VP  Verb Conj_t
+1   Conj_t  Conj VP
+
+# sentence c
+1   S  NP Verb3                   # the president sighed .
+
+# sentence d
+1   Verb  thought
+1   VP  Verb THAT_1
+
+# sentence e
+1 VP    Verb Noun
+1 THAT_1    That S
+1 Verb  perplexed
+1 NP    Pronoun Verb
+
+# sentence f
+1 Adverb   Adverb Adverb
+1 Adj   Adverb Adj
+1 VP  Det VP
+
+
+
 
 1	Noun	    Adj_1 Noun      # (f)
 1   Adj_1       Adverb_1 Adj    #
@@ -80,6 +101,9 @@
 1   NP_on   Prep Det_1      # on the ...
 1   Det_1   NP2 NP_on     # on the (loop)
 #3   Det_1   NP2           # on the (stop)
+1 VP
+
+
 
 1 VP_4      Verb_pp NP    # eating.. (the dog) (i)
 
