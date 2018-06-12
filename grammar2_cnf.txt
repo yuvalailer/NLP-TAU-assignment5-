@@ -89,8 +89,17 @@
 1 Adj   Adverb Adj
 1 VP  Det VP
 
+# sentence g
+Verb -> worked
+Noun -> proposal
+Noun -> desk
+S -> NP PP
 
+# sentence h
+1 Adj lazy
 
+# sentence h
+1 VP2   Verb2_s NP # the president thought that sally is a sandwich
 
 1	Noun	    Adj_1 Noun      # (f)
 1   Adj_1       Adverb_1 Adj    #
